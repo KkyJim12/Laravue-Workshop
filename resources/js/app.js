@@ -8,7 +8,9 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
+Vue.use(Vuex);
 Vue.use(VueRouter);
 
 /**
@@ -72,6 +74,14 @@ const routes = [
                 component: require("./components/Computed/Computed.vue").default
             },
             {
+                path: "/vuex",
+                component: require("./components/Vuex/Vuex.vue").default
+            },
+            {
+                path: "/vuex2",
+                component: require("./components/Vuex/Vuex2.vue").default
+            },
+            {
                 path: "/register",
                 component: require("./components/ManualRegister/Register.vue")
                     .default,
@@ -112,6 +122,20 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 });
 
+const store = new Vuex.Store({
+    state: {
+        tel: null
+    },
+    mutations: {
+        Store(state, tel) {
+            state.tel = tel;
+        }
+    },
+    getters: {
+        tel: state => state.tel
+    }
+});
+
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.auth)) {
         if (localStorage.getItem("email") !== null) {
@@ -131,5 +155,6 @@ router.beforeEach((to, from, next) => {
 
 const app = new Vue({
     el: "#app",
-    router
+    router,
+    store
 });

@@ -34,6 +34,12 @@
           <li class="nav-item">
             <router-link to="/computed" class="nav-link">Computed</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/vuex" class="nav-link">vuex</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/vuex2" class="nav-link">vuex-show</router-link>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto" v-if="this.email">
           <li class="nav-item">
