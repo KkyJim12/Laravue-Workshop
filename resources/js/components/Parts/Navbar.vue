@@ -40,6 +40,9 @@
           <li class="nav-item">
             <router-link to="/vuex2" class="nav-link">vuex-show</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/multi-element" class="nav-link">Multi Element</router-link>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto" v-if="this.email">
           <li class="nav-item">

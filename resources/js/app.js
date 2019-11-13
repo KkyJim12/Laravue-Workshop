@@ -9,10 +9,14 @@ require("./bootstrap");
 window.Vue = require("vue");
 import VueRouter from "vue-router";
 import Vuex from "vuex";
+import Vuetable from 'vuetable-2';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
+Vue.use(Vuetable)
 
+
+Vue.component("vuetable", Vuetable);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -112,6 +116,11 @@ const routes = [
             {
                 path: "/edit/:id",
                 component: require("./components/CRUD/Edit.vue").default,
+                meta: { auth: false }
+            },
+            {
+                path: "/multi-element",
+                component: require("./components/Extra/MultiElement.vue").default,
                 meta: { auth: false }
             }
         ]

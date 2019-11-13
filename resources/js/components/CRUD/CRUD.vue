@@ -5,30 +5,11 @@
         <h1>CRUD Workshop</h1>
         <router-link to="/create" class="btn btn-success">Create</router-link>
         <hr />
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(show,index) in product">
-              <th scope="row">1</th>
-              <td>{{show.name}}</td>
-              <td>{{show.price}}</td>
-              <td>
-                <router-link :to="'/edit/'+show.id" class="btn btn-warning">Edit</router-link>
-              </td>
-              <td>
-                <button @click="Delete(show.id)" class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <vuetable ref="vuetable"
+          api-url="/api/product"
+          :fields="['name', 'price']"
+          data-path=""
+        ></vuetable>
       </div>
     </div>
   </div>
